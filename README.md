@@ -2,6 +2,7 @@
 
 ## Testes:
 
+- Cypress versão 9.5.1
 - Visitar páginas locais e remotas
 - Lidar com os elementos mais comuns encontrados em aplicações web
 - Testar _upload_ de arquivos
