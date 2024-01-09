@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prizinhamar/cypress-basico-v2.git"
+    "url": "git+https://github.com/peribarros/cypress-integracao-continua.git"
   },
   "keywords": [
     "Testing",
