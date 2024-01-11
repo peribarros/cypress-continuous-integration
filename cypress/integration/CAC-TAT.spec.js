@@ -25,7 +25,8 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         // o padrão de delay do Cypress é 10
         cy.get('#open-text-area').type(longText, { delay: 0 })
         // classe button e a propriedade type submit 
-        cy.get('button[type="submit"]').click()
+        //cy.get('button[type="submit"]').click()
+        cy.contains('button', 'Enviar').click()
 
         cy.get('.success').should('be.visible')
     })
@@ -37,7 +38,8 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         // o padrão de delay do Cypress é 10
         cy.get('#open-text-area').type('Texto de error')
         // classe button e a propriedade type submit 
-        cy.get('button[type="submit"]').click()
+        //cy.get('button[type="submit"]').click()
+        cy.contains('button', 'Enviar').click()
 
         //classe error
         cy.get('.error').should('be.visible')
@@ -56,33 +58,46 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.get('#email').type('peribarros@gmail.com')
         cy.get('#phone-checkbox').click()
         cy.get('#open-text-area').type('Exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário')
-        cy.get('button[type="submit"]').click()
+        //cy.get('button[type="submit"]').click()
+        cy.contains('button', 'Enviar').click()
 
         cy.get('.error').should('be.visible')
     })
 
-    it.only('preenche e limpa os campos nome, sobrenome, email e telefone', function () {
+    it('preenche e limpa os campos nome, sobrenome, email e telefone', function () {
         cy.get('#firstName')
-        .type('Peri')
-        .should('have.value', 'Peri')
-        .clear()
-        .should('have.value', '')
+            .type('Peri')
+            .should('have.value', 'Peri')
+            .clear()
+            .should('have.value', '')
         cy.get('#lastName')
-        .type('Barros')
-        .should('have.value', 'Barros')
-        .clear()
-        .should('have.value', '')
+            .type('Barros')
+            .should('have.value', 'Barros')
+            .clear()
+            .should('have.value', '')
         cy.get('#email')
-        .type('peribarros@gmail.com')
-        .should('have.value', 'peribarros@gmail.com')
-        .clear()
-        .should('have.value', '')
+            .type('peribarros@gmail.com')
+            .should('have.value', 'peribarros@gmail.com')
+            .clear()
+            .should('have.value', '')
         cy.get('#open-text-area')
-        .type('Preenche e limpa os campos nome, sobrenome, email e telefone')
-        .should('have.value', 'Preenche e limpa os campos nome, sobrenome, email e telefone')
-        .clear()
-        .should('have.value', '')
- 
+            .type('Preenche e limpa os campos nome, sobrenome, email e telefone')
+            .should('have.value', 'Preenche e limpa os campos nome, sobrenome, email e telefone')
+            .clear()
+            .should('have.value', '')
+    })
+
+    it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', function () {
+        //cy.get('button[type="submit"]').click()
+        cy.contains('button', 'Enviar').click()
+
+        cy.get('.error').should('be.visible')
+    })
+
+    it('envia o formuário com sucesso usando um comando customizado', function () {
+        cy.fillMandatoryFieldsAndSubmit()
+
+        cy.get('.success').should('be.visible')
     })
 
 
