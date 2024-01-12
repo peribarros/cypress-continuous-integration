@@ -34,6 +34,16 @@ This project was created with 💚 by Peri.
 
 # Project description:
 
+
+
+https://github.com/peribarros/cypress-continuous-integration/assets/71424123/dd8863bc-72e0-4186-ab1c-a28af09e0c15
+
+
+
+https://github.com/peribarros/cypress-continuous-integration/assets/71424123/ee4db313-f9a4-4525-b801-50a87e48ebbc
+
+
+
 - Cypress versão 9.5.1
 - Visitar páginas locais e remotas
 - Lidar com os elementos mais comuns encontrados em aplicações web
