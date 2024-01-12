@@ -100,5 +100,62 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.get('.success').should('be.visible')
     })
 
+    // Aula 26 ------------------------------
+
+    it('marca ambos checkboxes, depois desmarca o último', function () {
+        cy.get('input[type="checkbox"]')
+            .check()
+            .should('be.checked')
+            .last()
+            .uncheck()
+            .should('not.be.checked')
+    })
+
+    it('exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário', function () {
+        cy.get('#firstName').type('Peri')
+        cy.get('#lastName').type('Barros')
+        cy.get('#email').type('peribarros@gmail.com')
+        // .check (melhor semântica), ao invés de .click
+        cy.get('#phone-checkbox').check()
+        cy.get('#open-text-area').type('Exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário')
+        cy.contains('button', 'Enviar').click()
+
+        cy.get('.error').should('be.visible')
+    })
+
+    it('seleciona um arquivo da pasta fixtures', function () {
+        //cy.get('input[type="file"]#file-upload')
+        cy.get('input[type="file"]')
+            .should('not.have.value')
+            .selectFile('./cypress/fixtures/example.json')
+            .should(function ($input) {
+                expect($input[0].files[0].name).to.equal('example.json')
+            })
+    })
+
+    it('seleciona um arquivo simulando um drag-and-drop', function () {
+        //cy.get('input[type="file"]#file-upload')
+        cy.get('input[type="file"]')
+            .should('not.have.value')
+            .selectFile('./cypress/fixtures/example.json', { action: 'drag-drop' })
+            .should(function ($input) {
+                expect($input[0].files[0].name).to.equal('example.json')
+            })
+    })
+
+    it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function(){
+        cy.fixture('example.json').as('arquivoExemplo')
+        cy.get('input[type="file"]')
+        .selectFile('@arquivoExemplo')
+        .should(function ($input) {
+            expect($input[0].files[0].name).to.equal('example.json')
+        })
+    })
+
+    it.only('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function(){
+        // dentro do #privacy tem um a (link)
+        cy.get('#privacy a').should('have.attr', 'target', '_blank')
+    })
+    // Aula 26 ------------------------------
 
 })// describe
