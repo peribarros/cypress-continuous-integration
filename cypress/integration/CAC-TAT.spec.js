@@ -124,7 +124,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         .should('have.value', 'feedback')
     })
 
-    it.only('marca cada tipo de atendimento', function(){
+    it('marca cada tipo de atendimento', function(){
         cy.get('input[type="radio"]')
         .should('have.length', 3)
         .each(function($radio){
@@ -184,10 +184,19 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         })
     })
 
-    it.only('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function(){
+    it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function(){
         // dentro do #privacy tem um a (link)
         cy.get('#privacy a').should('have.attr', 'target', '_blank')
     })
     // Aula 26 ------------------------------
+
+    it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
+        cy.get('#privacy a')
+        //remove o atributo target
+        .invoke('removeAttr', 'target')
+        .click()
+
+        cy.contains('Talking About Testing').should('be.visible')
+    });
 
 })// describe
