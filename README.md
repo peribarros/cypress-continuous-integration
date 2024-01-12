@@ -30,7 +30,7 @@ If you want to support this project, leave a ⭐.
 
 ----
 
-This project was created with 💚 by [Peri].
+This project was created with 💚 by Peri.
 
 # Project description:
 
