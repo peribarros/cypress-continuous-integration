@@ -44,14 +44,46 @@ https://github.com/peribarros/cypress-continuous-integration/assets/71424123/ee4
 
 
 
-- Cypress versão 9.5.1
-- Visitar páginas locais e remotas
-- Lidar com os elementos mais comuns encontrados em aplicações web
-- Testar _upload_ de arquivos
-- Diversas verificações de resultados esperados
-- Comandos customizados
-- Links que abrem em outra aba do navegador
-- Testes simulando as dimensões de um dispositivo móvel
-- Testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Documentação do projeto de testes automatizados
+- Cypress version 9.5.1
+- Visit local and remote pages
+- Deal with the most common elements found in web applications
+- Test _upload_ of files
+- Various checks of expected results
+- Custom commands
+- Links that open in another browser tab
+- Tests simulating the dimensions of a mobile device
+- Tests in a continuous integration _pipeline_ whenever changes occur in the application code (or tests)
+- Update to Cypress version 13.6.2
+
+
+### Tests
+
+verifica o título da aplicação 
+preenche os campos obrigatórios e envia o formulário 
+exibe mensagem de erro ao submeter o formulário com um email com formatação inválida 
+campo telefone continua vazio quando preenchido com valor não-numérico 
+exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário 
+preenche e limpa os campos nome, sobrenome, email e telefone 
+exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios 
+envia o formuário com sucesso usando um comando customizado 
+seleciona um produto (YouTube) por seu texto 
+seleciona um produto (Mentoria) por seu valor (value) 
+seleciona um produto (Blog) por seu índice 
+marca o tipo de atendimento "Feedback" 
+marca cada tipo de atendimento 
+marca ambos checkboxes, depois desmarca o último 
+exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário 
+seleciona um arquivo da pasta fixtures 
+seleciona um arquivo simulando um drag-and-drop 
+seleciona um arquivo utilizando uma fixture para a qual foi dada um alias 
+verifica que a política de privacidade abre em outra aba sem a necessidade de um clique 
+acessa a página da política de privacidade removendo o target e então clicando no link 
+congelando o tempo e avançando em 3 segundos 
+por 3 vezes, executa o teste 
+por 3 vezes, executa o teste 
+por 3 vezes, executa o teste 
+exibe e esconde as mensagens de sucesso e erro usando o .invoke 
+preenche a area de texto usando o comando invoke e repete 20 vezes texto 
+faz uma requisição HTTP 
+encontre o gato escondido na aplicação
 
